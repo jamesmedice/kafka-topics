@@ -17,7 +17,7 @@ IFS=', ' read -r -a topics <<< "$KAFKA_CREATE_TOPICS"
 
 for t in ${topics[@]}; do 
   echo "[INSTALLATION-INFO] Creating Kafka Topic : ${t} "
-  ${KAFKA_HOME}/bin/kafka-topics.sh --create --zookeeper ${ZOOKEEPER_NAME}:2181 --replication-factor ${REPLICATION_FACTOR} --partitions ${PARTITIONS} --topic ${t} --if-not-exists
+  echo "${KAFKA_HOME}/bin/kafka-topics.sh --create --zookeeper ${ZOOKEEPER_NAME}:2181 --replication-factor ${REPLICATION_FACTOR} --partitions ${PARTITIONS} --topic ${t} --if-not-exists "
 done
 
 wait
